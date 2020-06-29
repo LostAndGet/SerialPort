@@ -1,0 +1,7 @@
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\bin\Release\CShapeSerialPort.exe
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\bin\Release\CShapeSerialPort.pdb
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Release\CShapeSerialPort.MainFrom.resources
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Release\CShapeSerialPort.Properties.Resources.resources
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Release\CShapeSerialPort.exe
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Release\CShapeSerialPort.pdb

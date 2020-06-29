@@ -1,0 +1,16 @@
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\bin\Debug\CShapeSerialPort.exe
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\bin\Debug\CShapeSerialPort.pdb
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.MainFrom.resources
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.Properties.Resources.resources
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.exe
+D:\Work_dir\TP_DOC\z_cShapPort\串口助手\CShapeSerialPort\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.pdb
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.exe
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.pdb
+D:\BaiduNetdiskDownload\CShapeSerialPort\bin\Debug\CShapeSerialPort.exe
+D:\BaiduNetdiskDownload\CShapeSerialPort\bin\Debug\CShapeSerialPort.pdb
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.csprojResolveAssemblyReference.cache
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.MainFrom.resources
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.Properties.Resources.resources
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.csproj.GenerateResource.Cache
+D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.csproj.CoreCompileInputs.cache
