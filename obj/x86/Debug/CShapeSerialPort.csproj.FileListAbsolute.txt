@@ -14,3 +14,29 @@ D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.MainFrom
 D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.Properties.Resources.resources
 D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.csproj.GenerateResource.Cache
 D:\BaiduNetdiskDownload\CShapeSerialPort\obj\x86\Debug\CShapeSerialPort.csproj.CoreCompileInputs.cache
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\CShapeSerialPort.exe
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\CShapeSerialPort.pdb
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\mscorlib.dll
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\JA\mscorlib.resources.dll
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\zh-CHS\mscorlib.resources.dll
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\sortkey.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\sorttbls.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\big5.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\bopomofo.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\ksc.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\prc.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\prcp.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\xjis.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\normidna.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\normnfc.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\normnfd.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\normnfkc.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\bin\Debug\normnfkd.nlp
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.csproj.AssemblyReference.cache
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.MainFrom.resources
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.Properties.Resources.resources
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.csproj.GenerateResource.cache
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.csproj.CoreCompileInputs.cache
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.csproj.CopyComplete
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.exe
+D:\Program Files (x86)\Microsoft Visual Studio\project\obj\x86\Debug\CShapeSerialPort.pdb
