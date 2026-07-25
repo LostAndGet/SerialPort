@@ -233,26 +233,30 @@ namespace CShapeSerialPort
 
 
             //原协议不好 这边做工业处理 传出byte数组
-            byte[] receviedBuf;
-            receviedBuf = new byte[comPort.BytesToRead];
-
             int itemp = comPort.BytesToRead;
-            int rcvByteLen = 0;
+            if (itemp <= 0) return;
+
+            byte[] receviedBuf = new byte[itemp];
             try
             {
-                for (int i = 0; i < itemp; i++)
+                int rcvByteLen = comPort.Read(receviedBuf, 0, itemp);
+                if (rcvByteLen > 0 && DataReceived != null)
                 {
-                    receviedBuf[i] = Convert.ToByte(comPort.ReadByte());
-                    rcvByteLen++;
-                }
-                if (receviedBuf != null)
-                {
-                    DataReceived(new DataReceivedEventArgs(receviedBuf));
+                    if (rcvByteLen < itemp)
+                    {
+                        byte[] actualData = new byte[rcvByteLen];
+                        Array.Copy(receviedBuf, actualData, rcvByteLen);
+                        DataReceived(new DataReceivedEventArgs(actualData));
+                    }
+                    else
+                    {
+                        DataReceived(new DataReceivedEventArgs(receviedBuf));
+                    }
                 }
             }
             catch (System.Exception ex)
             {
-            	
+                System.Diagnostics.Debug.WriteLine("串口接收异常: " + ex.Message);
             }
         }
 
@@ -275,14 +279,13 @@ namespace CShapeSerialPort
         /// <param name="msg"></param>
         public void WriteData(string msg)
         {
-            //if (!(comPort.IsOpen)) comPort.Open();
             try
             {
                 comPort.Write(msg);
             }
             catch (System.Exception ex)
             {
-            	
+                System.Diagnostics.Debug.WriteLine("串口写入异常(string): " + ex.Message);
             }
             
         }
@@ -293,14 +296,13 @@ namespace CShapeSerialPort
         /// <param name="msg">写入端口的字节数组</param>
         public void WriteData(byte[] msg)
         {
-            //if (!(comPort.IsOpen)) comPort.Open();
             try
             {
                 comPort.Write(msg, 0, msg.Length);
             }
             catch (System.Exception ex)
             {
-            	
+                System.Diagnostics.Debug.WriteLine("串口写入异常(byte[]): " + ex.Message);
             }
             
         }
@@ -313,14 +315,13 @@ namespace CShapeSerialPort
         /// <param name="count">要写入的字节数</param>
         public void WriteData(byte[] msg, int offset, int count)
         {
-            //if (!(comPort.IsOpen)) comPort.Open();
             try
             {
                 comPort.Write(msg, offset, count);
             }
             catch (System.Exception ex)
             {
-            	
+                System.Diagnostics.Debug.WriteLine("串口写入异常(offset): " + ex.Message);
             }
             
         }
@@ -334,7 +335,7 @@ namespace CShapeSerialPort
         /// <returns></returns>
         public int SendCommand(byte[] SendData, ref  byte[] ReceiveData, int Overtime)
         {
-            if (!(comPort.IsOpen)) comPort.Open();
+            if (!(comPort.IsOpen)) OpenPort();
 
             ReceiveEventFlag = true;        //关闭接收事件
             comPort.DiscardInBuffer();      //清空接收缓冲区                 
