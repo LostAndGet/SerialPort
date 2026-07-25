@@ -13,10 +13,7 @@
 
 ## 界面说明
 
-```
-<img width="631" height="645" alt="image" src="https://github.com/user-attachments/assets/798c7797-2506-4067-a968-c16871f59ab5" />
-
-```
+<img width="631" height="645" alt="image" src="https://github.com/user-attachments/assets/3a89d765-2a98-4dd4-a875-d481543bb2a2" />
 
 - **左侧上方**：接收区，实时显示串口收到的数据
 - **左侧下方**：发送区，输入要发送的数据后点击"串口发送"
