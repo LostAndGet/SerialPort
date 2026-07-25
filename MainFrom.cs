@@ -108,13 +108,13 @@ namespace CShapeSerialPort
             comboBoxSJW.SelectedIndex = 3;
             comboBoxXYW.SelectedIndex = 0;
             comboBoxTZW.SelectedIndex = 1;
-            comboBoxDKH.SelectedIndexChanged += (o, ex) => { COMClose(); comPort.PortName = comboBoxDKH.SelectedItem.ToString(); COMOpen(); };
-            comboBoxBTL.SelectedIndexChanged += (o, ex) => { COMClose(); comPort.BaudRate = (SerialPortBaudRates)Convert.ToInt32(comboBoxBTL.SelectedItem); COMOpen(); };
-            comboBoxSJW.SelectedIndexChanged += (o, ex) => { COMClose(); comPort.DataBits = (SerialPortDatabits)Convert.ToInt32(comboBoxSJW.SelectedItem.ToString()); COMOpen(); };
-            comboBoxXYW.SelectedIndexChanged += (o, ex) => { COMClose(); comPort.Parity = (Parity)(comboBoxXYW.SelectedIndex); COMOpen(); };
-            comboBoxTZW.SelectedIndexChanged += (o, ex) => { COMClose(); comPort.StopBits = (StopBits)(comboBoxTZW.SelectedIndex); COMOpen(); };
+            comboBoxDKH.SelectedIndexChanged += (o, ex) => { bool wasOpen = comPort.IsOpen; COMClose(); comPort.PortName = comboBoxDKH.SelectedItem.ToString(); if (wasOpen) COMOpen(); };
+            comboBoxBTL.SelectedIndexChanged += (o, ex) => { bool wasOpen = comPort.IsOpen; COMClose(); comPort.BaudRate = (SerialPortBaudRates)Convert.ToInt32(comboBoxBTL.SelectedItem); if (wasOpen) COMOpen(); };
+            comboBoxSJW.SelectedIndexChanged += (o, ex) => { bool wasOpen = comPort.IsOpen; COMClose(); comPort.DataBits = (SerialPortDatabits)Convert.ToInt32(comboBoxSJW.SelectedItem.ToString()); if (wasOpen) COMOpen(); };
+            comboBoxXYW.SelectedIndexChanged += (o, ex) => { bool wasOpen = comPort.IsOpen; COMClose(); comPort.Parity = (Parity)(comboBoxXYW.SelectedIndex); if (wasOpen) COMOpen(); };
+            comboBoxTZW.SelectedIndexChanged += (o, ex) => { bool wasOpen = comPort.IsOpen; COMClose(); comPort.StopBits = (StopBits)(comboBoxTZW.SelectedIndex); if (wasOpen) COMOpen(); };
             comPort.DataReceived += new DataReceivedEventHandler(comPort_DataReceived);
-            comPort.Error += new SerialErrorReceivedEventHandler(comPort_Error);;
+            comPort.Error += new SerialErrorReceivedEventHandler(comPort_Error);
             //COMOpen();
             comPort.PortName = comboBoxDKH.SelectedItem.ToString();
             comPort.BaudRate = (SerialPortBaudRates)Convert.ToInt32(comboBoxBTL.SelectedItem);
@@ -130,7 +130,10 @@ namespace CShapeSerialPort
 
         void comPort_Error(object sender, SerialErrorReceivedEventArgs e)
         {
-            MessageBox.Show(e.ToString());
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                MessageBox.Show(e.ToString(), "串口错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }));
         }
 
        void comPort_DataReceived(DataReceivedEventArgs e)
@@ -143,7 +146,7 @@ namespace CShapeSerialPort
                    } 
                    else
                    {
-                       this.txtRecv.AppendText(System.Text.Encoding.Default.GetString(e.DataRecv));//输出到主窗口文本控件   
+                       this.txtRecv.AppendText(System.Text.Encoding.GetEncoding(936).GetString(e.DataRecv));//输出到主窗口文本控件
                    }
                }
                )
@@ -169,38 +172,29 @@ namespace CShapeSerialPort
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (chkBoxSendOntime.Checked)
-            {
-                if (txtTime.Text=="")
-                {
-                    timer1.Enabled = false;
-                    MessageBox.Show("请输入时间！");
-                } 
-                else
-                {
-                    if (comPort.IsOpen)
-                    {
-                        COMSend();
-                    }
-                }
-            }
+            // 已改用 System.Timers.Timer (timer_Elapsed)，此方法保留但不再使用
         }
 
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            //throw new NotImplementedException();
             if (chkBoxSendOntime.Checked)
             {
                 if (txtTime.Text == "")
                 {
-                    timer1.Enabled = false;
-                    MessageBox.Show("请输入时间！");
+                    timer.Enabled = false;
+                    this.BeginInvoke(new MethodInvoker(() =>
+                    {
+                        MessageBox.Show("请输入时间！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }));
                 }
                 else
                 {
                     if (comPort.IsOpen)
                     {
-                        COMSend();
+                        this.BeginInvoke(new MethodInvoker(() =>
+                        {
+                            COMSend();
+                        }));
                     }
                 }
             }
@@ -219,18 +213,19 @@ namespace CShapeSerialPort
                 {
                     try
                     {
-                        //timer1.Interval = Convert.ToInt32(txtTime.Text);
-                        //timer1.Enabled = true;
                         timer.Interval = Convert.ToInt32(txtTime.Text);
                         timer.Enabled = true;
                     }
                     catch (System.Exception ex)
                     {
-                        //timer1.Enabled = false;
                         timer.Enabled = false;
                         MessageBox.Show("时间输入错误：" + ex.Message);
                     }
                 }
+            }
+            else
+            {
+                timer.Enabled = false;
             }
         }
 
@@ -243,14 +238,15 @@ namespace CShapeSerialPort
         {
             try
             {
-//                 timer1.Interval = Convert.ToInt32(txtTime.Text);
-//                 timer1.Enabled = true;
                 timer.Interval = Convert.ToInt32(txtTime.Text);
-                timer.Enabled = true;
+                // 仅在已勾选定 时发送时才启用定时器
+                if (chkBoxSendOntime.Checked)
+                {
+                    timer.Enabled = true;
+                }
             }
             catch (System.Exception ex)
             {
-                //timer1.Enabled = false;
                 timer.Enabled = false;
                 MessageBox.Show("时间输入错误：" + ex.Message);
             }

@@ -1,0 +1,44 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.cache
+*.dll
+*.pdb
+
+## Visual Studio
+.vs/
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+*.tlog
+*.idb
+
+## Publish artifacts
+publish/
+*.application
+*.manifest
+*.pfx
+
+## OS files
+Thumbs.db
+desktop.ini
+.DS_Store
